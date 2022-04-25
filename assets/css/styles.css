@@ -1,0 +1,301 @@
+/* ============================== IMPORTS ============================== */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+/* ============= VARIABLES ============= */
+/* ========== COLORS ========== */
+/* ========== Fonts ========== */
+/* ============= MIXINS ============= */
+/* ============================== RESET ============================== */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, li {
+  list-style-type: none;
+}
+
+/* ============================== GENERAL ============================== */
+html,
+body {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(45deg, #242424, #3e3e3e);
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1px;
+  color: #F1F1F1;
+  font-size: 16px;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* ============================== NAV ============================== */
+aside {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-right: 4px solid #414246;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-top: 30px;
+  align-items: center;
+  width: 60px;
+}
+@media screen and (min-width: 768px) {
+  aside {
+    width: 100px;
+  }
+}
+aside .logo {
+  font-size: 25px;
+}
+aside ul {
+  display: flex;
+  transform: rotate(-90deg);
+  margin-bottom: 100px;
+}
+aside ul li {
+  position: relative;
+  margin-right: 20px;
+  cursor: pointer;
+}
+aside ul li.active {
+  color: #fa6539;
+}
+aside ul li.active::after {
+  display: block;
+}
+aside ul li::after {
+  content: "";
+  display: none;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background-color: #fa6539;
+  bottom: -22px;
+  left: 0;
+}
+@media screen and (min-width: 768px) {
+  aside ul li::after {
+    bottom: -42px;
+  }
+}
+
+nav {
+  padding: 30px 80px;
+}
+nav ul {
+  display: flex;
+  justify-content: right;
+}
+nav ul li {
+  margin-left: 50px;
+}
+nav ul li i {
+  color: #fa6539;
+}
+
+/* ============================== SECTION ============================== */
+section {
+  padding: 60px 0 0 130px;
+}
+@media screen and (min-width: 992px) {
+  section {
+    padding: 60px 0 0;
+  }
+}
+section h1 {
+  color: #fa6539;
+  letter-spacing: 5px;
+  font-weight: 500;
+}
+@media screen and (min-width: 992px) {
+  section h1 {
+    text-align: center;
+  }
+}
+section .shoes {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+}
+@media screen and (min-width: 992px) {
+  section .shoes {
+    justify-content: center;
+  }
+}
+section .shoes img {
+  width: 40%;
+}
+section .shoes .infos {
+  position: absolute;
+  width: 150px;
+  bottom: 0;
+  right: 0;
+}
+@media screen and (min-width: 992px) {
+  section .shoes .infos {
+    width: 200px;
+    bottom: 60px;
+  }
+}
+section .shoes .infos div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+section .shoes .infos div span:first-child {
+  color: rgba(241, 241, 241, 0.8);
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+section .shoes .infos a {
+  padding-bottom: 3px;
+  border-bottom: 2px solid #fa6539;
+  font-weight: 500;
+}
+
+.navigation {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: calc(100% - 120px);
+  height: 117px;
+  margin-left: 120px;
+  justify-content: space-between;
+}
+@media screen and (min-width: 992px) {
+  .navigation {
+    height: 300px;
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .navigation {
+    flex-direction: unset;
+    height: 200px;
+  }
+}
+.navigation .page {
+  width: auto;
+  max-width: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+@media screen and (min-width: 768px) {
+  .navigation .page {
+    width: 100%;
+  }
+}
+.navigation .page h2 {
+  font-size: 16px;
+  color: rgba(136, 136, 136, 0.6);
+  margin-right: 20px;
+}
+.navigation .page h2 #current_page {
+  font-size: 24px;
+  color: #F1F1F1;
+}
+.navigation .page .line {
+  width: 70%;
+  height: 5px;
+  background-color: #555;
+  margin-top: 10px;
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .navigation .page .line {
+    display: block;
+  }
+}
+.navigation .page .line .progress {
+  height: 100%;
+  background-color: #fa6539;
+}
+.navigation .products {
+  display: flex;
+}
+.navigation .products .btn_nav {
+  display: flex;
+  align-items: flex-end;
+}
+@media screen and (min-width: 992px) {
+  .navigation .products .btn_nav {
+    margin-top: 30px;
+    display: block;
+  }
+}
+.navigation .products .btn_nav .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85px;
+  height: 85px;
+  background-color: #474747;
+  cursor: pointer;
+}
+.navigation .products .btn_nav .btn.btn_prev {
+  background-color: #3e3e3e;
+}
+.navigation .products .container_products {
+  display: none;
+  width: 623px;
+}
+@media screen and (min-width: 992px) {
+  .navigation .products .container_products {
+    display: block;
+  }
+}
+.navigation .products .container_products .product {
+  display: none;
+  position: relative;
+  background: linear-gradient(45deg, #242424, #3e3e3e);
+}
+.navigation .products .container_products .product.preview_product {
+  display: block;
+  width: 333px;
+  height: 100%;
+  float: left;
+}
+.navigation .products .container_products .product.next_product {
+  display: block;
+  float: right;
+  margin-top: 25px;
+  width: 290px;
+  height: 175px;
+}
+.navigation .products .container_products .product.next_product .opacity {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(241, 241, 241, 0.2);
+}
+.navigation .products .container_products .product .name {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-weight: 500;
+}
+.navigation .products .container_products .product img {
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*# sourceMappingURL=styles.css.map */

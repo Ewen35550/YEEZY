@@ -1,0 +1,37 @@
+/* ============= VARIABLES ============= */
+/* ========== COLORS ========== */
+$black: #000;
+$grey: #555;
+$grey-2: #888;
+$white: #F1F1F1;
+$orange: #fa6539;
+
+/* ========== Fonts ========== */
+$roboto: 'Roboto', sans-serif;
+
+/* ============= MIXINS ============= */
+
+// USE : @include nameOfFunction
+@mixin up-phone {
+    @media screen and (min-width: 576px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: 1200px) {
+        @content;
+    }
+}
