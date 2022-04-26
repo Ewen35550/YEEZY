@@ -57,13 +57,20 @@ function init() {
             let products = document.querySelectorAll('.product');
 
             products.forEach(product => {
+                product.classList.remove('prev_product');
                 product.classList.remove('preview_product');
                 product.classList.remove('next_product');
 
-                if (currentPage === 0 || currentPage < data.length - 1) {
+                if (currentPage === 0) {
+                    products[data.length - 1].classList.add('prev_product');
+                    products[currentPage].classList.add('preview_product');
+                    products[currentPage + 1].classList.add('next_product');
+                } else if (currentPage > 0 && currentPage < data.length - 1) {
+                    products[currentPage - 1].classList.add('prev_product');
                     products[currentPage].classList.add('preview_product');
                     products[currentPage + 1].classList.add('next_product');
                 } else if (currentPage === data.length - 1){
+                    products[currentPage - 1].classList.add('prev_product');
                     products[currentPage].classList.add('preview_product');
                     products[0].classList.add('next_product');
                 }

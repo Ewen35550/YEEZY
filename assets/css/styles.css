@@ -106,9 +106,14 @@ nav ul li i {
 
 /* ============================== SECTION ============================== */
 section {
-  padding: 60px 0 0 130px;
+  padding: 60px 260px 0 100px;
 }
 @media screen and (min-width: 992px) {
+  section {
+    padding: 60px 260px 0 100px;
+  }
+}
+@media screen and (min-width: 1200px) {
   section {
     padding: 60px 0 0;
   }
@@ -117,41 +122,67 @@ section h1 {
   color: #fa6539;
   letter-spacing: 5px;
   font-weight: 500;
-}
-@media screen and (min-width: 992px) {
-  section h1 {
-    text-align: center;
-  }
+  text-align: center;
 }
 section .shoes {
   position: relative;
   display: flex;
   margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1200px) {
   section .shoes {
-    justify-content: center;
+    height: auto;
   }
 }
 section .shoes img {
-  width: 40%;
+  min-width: 300px;
+  max-width: 300px;
+}
+@media screen and (min-width: 992px) {
+  section .shoes img {
+    width: 40%;
+    max-width: 100%;
+  }
 }
 section .shoes .infos {
   position: absolute;
-  width: 150px;
-  bottom: 0;
-  right: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  bottom: -95px;
+  right: 50%;
+  transform: translateX(50%);
+  min-width: 400px;
 }
 @media screen and (min-width: 992px) {
   section .shoes .infos {
+    bottom: -75px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  section .shoes .infos {
+    display: block;
+    min-width: 200px;
     width: 200px;
     bottom: 60px;
+    right: 0;
+    transform: translateX(0);
   }
 }
 section .shoes .infos div {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  margin-right: 30px;
   margin-bottom: 30px;
+}
+@media screen and (min-width: 1200px) {
+  section .shoes .infos div {
+    margin-right: 0;
+  }
 }
 section .shoes .infos div span:first-child {
   color: rgba(241, 241, 241, 0.8);
@@ -176,13 +207,6 @@ section .shoes .infos a {
 }
 @media screen and (min-width: 992px) {
   .navigation {
-    height: 300px;
-    flex-direction: column;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .navigation {
-    flex-direction: unset;
     height: 200px;
   }
 }
@@ -223,15 +247,22 @@ section .shoes .infos a {
 .navigation .page .line .progress {
   height: 100%;
   background-color: #fa6539;
+  transition: width 0.2s ease-in-out;
 }
 .navigation .products {
   display: flex;
+  flex-direction: column-reverse;
+}
+@media screen and (min-width: 1200px) {
+  .navigation .products {
+    flex-direction: row;
+  }
 }
 .navigation .products .btn_nav {
   display: flex;
   align-items: flex-end;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1200px) {
   .navigation .products .btn_nav {
     margin-top: 30px;
     display: block;
@@ -241,48 +272,74 @@ section .shoes .infos a {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 85px;
+  width: 130px;
   height: 85px;
   background-color: #474747;
   cursor: pointer;
+}
+@media screen and (min-width: 1200px) {
+  .navigation .products .btn_nav .btn {
+    width: 85px;
+  }
 }
 .navigation .products .btn_nav .btn.btn_prev {
   background-color: #3e3e3e;
 }
 .navigation .products .container_products {
-  display: none;
-  width: 623px;
+  width: 260px;
+  height: 450px;
 }
 @media screen and (min-width: 992px) {
   .navigation .products .container_products {
     display: block;
   }
 }
+@media screen and (min-width: 1200px) {
+  .navigation .products .container_products {
+    width: 623px;
+    height: auto;
+  }
+}
 .navigation .products .container_products .product {
   display: none;
   position: relative;
   background: linear-gradient(45deg, #242424, #3e3e3e);
+  width: 100%;
+  height: 150px;
 }
 .navigation .products .container_products .product.preview_product {
   display: block;
-  width: 333px;
-  height: 100%;
-  float: left;
 }
-.navigation .products .container_products .product.next_product {
+@media screen and (min-width: 1200px) {
+  .navigation .products .container_products .product.preview_product {
+    width: 333px;
+    height: 100%;
+    float: left;
+  }
+}
+.navigation .products .container_products .product.next_product, .navigation .products .container_products .product.prev_product {
   display: block;
-  float: right;
-  margin-top: 25px;
-  width: 290px;
-  height: 175px;
 }
-.navigation .products .container_products .product.next_product .opacity {
+@media screen and (min-width: 1200px) {
+  .navigation .products .container_products .product.next_product, .navigation .products .container_products .product.prev_product {
+    float: right;
+    margin-top: 25px;
+    width: 290px;
+    height: 175px;
+  }
+}
+.navigation .products .container_products .product.next_product .opacity, .navigation .products .container_products .product.prev_product .opacity {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: rgba(241, 241, 241, 0.2);
+}
+@media screen and (min-width: 1200px) {
+  .navigation .products .container_products .product.prev_product {
+    display: none;
+  }
 }
 .navigation .products .container_products .product .name {
   position: absolute;

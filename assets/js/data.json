@@ -16,5 +16,11 @@
         "release": "December 27",
         "price": "$220,00",
         "img": "assets/img/Static/shoes.png"
+    },
+    {
+        "name": "Static",
+        "release": "December 27",
+        "price": "$220,00",
+        "img": "assets/img/Static/shoes.png"
     }
 ]

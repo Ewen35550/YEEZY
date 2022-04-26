@@ -101,43 +101,67 @@ nav {
 
 /* ============================== SECTION ============================== */
 section {
-    padding: 60px 0 0 130px;
+    padding: 60px 260px 0 100px;
     @include laptop {
+        padding: 60px 260px 0 100px;
+    }
+    @include desktop {
         padding: 60px 0 0;
     }
     h1 {
         color: $orange;
         letter-spacing: 5px;
         font-weight: 500;
-        @include laptop {
-            text-align: center;
-        }
+        text-align: center;
     }
     .shoes {
         position: relative;
         display: flex;
         margin: 0 auto;
-        @include laptop {
-            justify-content: center;
+        justify-content: center;
+        align-items: center;
+        height: 40vh;
+        @include desktop {
+            height: auto;
         }
         img {
-            width: 40%;
+            min-width: 300px;
+            max-width: 300px;
+            @include laptop {
+                width: 40%;
+                max-width: 100%;
+            }
         }
         .infos {
             position: absolute;
-            width: 150px;
-            bottom: 0;
-            right: 0;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            bottom: -95px;
+            right: 50%;
+            transform: translateX(50%);
+            min-width: 400px;
             @include laptop {
+                bottom: -75px;
+            }
+            @include desktop {
+                display: block;
+                min-width: 200px;
                 width: 200px;
                 bottom: 60px;
+                right: 0;
+                transform: translateX(0);
             }
             div {
                 display: flex;
                 flex-direction: column;
+                justify-content: center;
+                margin-right: 30px;
                 margin-bottom: 30px;
+                @include desktop {
+                    margin-right: 0;
+                }
                 span {
-
                     &:first-child {
                         color: rgba($color: $white, $alpha: 0.8);
                         font-size: 12px;
@@ -163,11 +187,6 @@ section {
     margin-left: 120px;
     justify-content: space-between;
     @include laptop {
-        height: 300px;
-        flex-direction: column;
-    }
-    @include desktop {
-        flex-direction: unset;
         height: 200px;
     }
     .page {
@@ -201,15 +220,20 @@ section {
             .progress {
                 height: 100%;
                 background-color: $orange;
+                transition: width 0.2s ease-in-out;
             }
         }
     }
     .products {
         display: flex;
+        flex-direction: column-reverse;
+        @include desktop {
+            flex-direction: row;
+        }
         .btn_nav {
             display: flex;
             align-items: flex-end;
-            @include laptop {
+            @include desktop {
                 margin-top: 30px;
                 display: block;
             }
@@ -217,37 +241,52 @@ section {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 85px;
+                width: 130px;
                 height: 85px;
                 background-color: #474747;
                 cursor: pointer;
+                @include desktop {
+                    width: 85px;
+                }
                 &.btn_prev {
                     background-color: #3e3e3e;
                 }
             }
         }
         .container_products {
-            display: none;
-            width: 623px;
+            // display: none;
+            width: 260px;
+            height: 450px;
             @include laptop {
                 display: block;
+            }
+            @include desktop {
+                width: 623px;
+                height: auto;
             }
             .product {
                 display: none;
                 position: relative;
                 background: linear-gradient(45deg, #242424, #3e3e3e);
+                width: 100%;
+                height: 150px;
                 &.preview_product {
                     display: block;
-                    width: 333px;
-                    height: 100%;
-                    float: left;
+                    @include desktop {
+                        width: 333px;
+                        height: 100%;
+                        float: left;
+                    }
                 }
-                &.next_product {
+                &.next_product,
+                &.prev_product {
                     display: block;
-                    float: right;
-                    margin-top: 25px;
-                    width: 290px;
-                    height: 175px;
+                    @include desktop {
+                        float: right;
+                        margin-top: 25px;
+                        width: 290px;
+                        height: 175px;
+                    }
                     .opacity {
                         position: absolute;
                         top: 0;
@@ -255,6 +294,11 @@ section {
                         right: 0;
                         bottom: 0;
                         background-color: rgba($color: $white, $alpha: 0.2);
+                    }
+                }
+                &.prev_product {
+                    @include desktop {
+                        display: none;
                     }
                 }
                 .name {
